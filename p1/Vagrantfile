@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+username = "aascedu"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/debian-13"
+
+  config.vm.define "#{username}S" do |srv|
+    srv.vm.hostname = "#{username}S"
+    srv.vm.network "private_network", ip: "192.168.56.110"
+    srv.vm.provider :virtualbox do |vb|
+      vb.name = "#{username}S"
+      vb.cpus = 2
+      vb.memory = 2048
+    end
+    srv.vm.provision "shell", path: "install_k3s.sh", args: "server"
+  end
+
+  config.vm.define "#{username}SW" do |srv|
+    srv.vm.hostname = "#{username}SW"
+    srv.vm.network "private_network", ip: "192.168.56.111"
+    srv.vm.provider :virtualbox do |vb|
+      vb.name = "#{username}SW"
+      vb.cpus = 1
+      vb.memory = 1024
+    end
+    srv.vm.provision "shell", path: "install_k3s.sh", args: "agent"
+  end
+end
