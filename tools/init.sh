@@ -6,7 +6,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 
 # Docker
 sudo apt update -y
-sudo apt install -y ca-certificates curl
+sudo apt upgrade -y
+sudo apt install -y ca-certificates curl xubuntu-desktop
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
