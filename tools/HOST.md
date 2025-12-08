@@ -1,6 +1,9 @@
 I made this file to keep track of the cmds or ways to create the host that will have Vagrant installed.
 
-I will create the host with QEMU :
+Create the QEMU image :
+`qemu-img create -f qcow2 iot-vm.qcow2 60G`
+
+Then the host with QEMU :
 ```
   qemu-system-x86_64 \
   -enable-kvm \
@@ -21,7 +24,7 @@ qemu-system-x86_64 \
   -smp 4 \
   -cpu max \
   -hda ~/goinfre/iot-vm.qcow2 \
-  -nic user,hostfwd=tcp::2222-:22 \
+  -nic user,hostfwd=tcp::2222-:22,hostfwd=tcp::8888-:8888 \
   -nographic
 ```
 ```
