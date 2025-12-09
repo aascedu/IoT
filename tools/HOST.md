@@ -8,7 +8,7 @@ Then the host with QEMU :
   qemu-system-x86_64 \
   -enable-kvm \
   -m 8G \
-  -smp 4 \
+  -smp 20 \
   -cpu max \
   -hda ~/goinfre/iot-vm.qcow2 \
   -cdrom ~/Downloads/ubuntu-24.04-server.iso \
@@ -21,11 +21,11 @@ Then to launch the VM :
 qemu-system-x86_64 \
   -enable-kvm \
   -m 8192 \
-  -smp 4 \
+  -smp 20 \
   -cpu max \
   -hda ~/goinfre/iot-vm.qcow2 \
   -nic user,hostfwd=tcp::2222-:22,hostfwd=tcp::8888-:8888 \
-  -vga virtio
+  -nographic
 ```
 ```
 wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
