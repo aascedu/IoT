@@ -1,0 +1,42 @@
+global:
+  hosts:
+    https: false
+  ingress:
+    configureCertmanager: false
+    enabled: true
+    provider: traefik
+    class: traefik
+    tls:
+      enabled: false
+  monitoring:
+    enabled: false
+  gitlab-runner:
+    enabled: false
+
+gitlab:
+  kas:
+    enabled: false
+  gitlab-exporter:
+    enabled: false
+  gitlab-pages:
+    enabled: false
+    metrics:
+      enabled: false
+  gitlab-runner:
+    install: false
+  mailroom:
+    enabled: false
+  toolbox:
+    enabled: false
+  haproxy:
+    enabled: false
+  nginx:
+    enabled: false
+  zoekt:
+    enabled: false
+
+traefik:
+  enabled: false
+
+nginx-ingress:
+  enabled: false
