@@ -24,7 +24,7 @@ qemu-system-x86_64 \
   -smp 4 \
   -cpu max \
   -hda ~/goinfre/iot-vm.qcow2 \
-  -nic user,hostfwd=tcp::2222-:22,hostfwd=tcp::8888-:8888,hostfwd=tcp::8080-:8080 \
+  -nic user,hostfwd=tcp::2222-:22,hostfwd=tcp::8888-:8888 \
   -vga virtio
 ```
 ```
@@ -37,7 +37,12 @@ sudo apt install -y vagrant virtualbox
 then from the 42 session you can copy files with :  
 `rsync -e "ssh -p 2222" src dst`
 
-For part 3 if you want to route to correct Hostname you can use this command :
+For part 3 if you want to route to correct Hostname you can use these ressources / commands :
+
+https://argo-cd.readthedocs.io/en/stable/getting_started/
+https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#traefik-v30
+https://argo-cd.readthedocs.io/en/stable/operator-manual/server-commands/additional-configuration-method/
+
 ```
 chromium \
         --host-resolver-rules="MAP argocd.local 127.0.0.1" \
