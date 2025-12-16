@@ -7,6 +7,7 @@ fi
 
 DURATION_MINUTES=$1
 END_TIME=$(( $(date +%s) + DURATION_MINUTES*60 ))
+echo $END_TIME
 while [ $(date +%s) -lt $END_TIME ]; do
     killall ft_lock
 

@@ -1,7 +1,7 @@
 I made this file to keep track of the cmds or ways to create the host that will have Vagrant installed.
 
 Create the QEMU image :
-`qemu-img create -f qcow2 iot-vm.qcow2 60G`
+`qemu-img create -f qcow2 ~/goinfre/iot-vm.qcow2 60G`
 
 Then the host with QEMU :
 ```
@@ -25,7 +25,7 @@ qemu-system-x86_64 \
   -cpu max \
   -hda ~/goinfre/iot-vm.qcow2 \
   -nic user,hostfwd=tcp::2222-:22,hostfwd=tcp::8888-:8888 \
-  -nographic
+  -vga virtio
 ```
 ```
 wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
