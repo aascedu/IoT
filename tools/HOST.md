@@ -35,7 +35,7 @@ sudo apt install -y vagrant virtualbox
 ```
 
 then from the 42 session you can copy files with :  
-`rsync -e "ssh -p 2222" src dst`
+`rsync -e "ssh -p 2222" [src] [dst]`
 
 For part 3 if you want to route to correct Hostname you can use these ressources / commands :
 

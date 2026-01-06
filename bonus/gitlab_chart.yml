@@ -83,9 +83,6 @@ gitlab:
   minio:
     enabled: false
 
-  minio:
-    enabled: false
-
   registry:
     enabled: false
 
@@ -94,7 +91,6 @@ gitlab:
 
   grafana:
     install: false
-
 
   certmanager:
     install: false

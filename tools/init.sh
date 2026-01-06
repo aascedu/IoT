@@ -29,9 +29,12 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
 # Helm
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
-chmod 700 get_helm.sh
-./get_helm.sh
+# curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+# chmod 700 get_helm.sh
+# ./get_helm.sh
 
-mkdir -p /home/aascedu/mount_dir
+# For bonus part. Not done.
+# mkdir -p /home/aascedu/mount_dir
+
+
 sudo usermod -aG docker aascedu

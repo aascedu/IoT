@@ -8,11 +8,11 @@ k3d cluster create $CLUSTER_NAME --api-port 6550 -p "8888:80@loadbalancer" --ser
   --k3s-arg '--kubelet-arg=eviction-minimum-reclaim=imagefs.available=1%,nodefs.available=1%@agent:*'
 export KUBECONFIG="$(k3d kubeconfig write k3s-default)"
 echo my passwd:$PASSWD
-kubectl create secret docker-registry regcred \
-  --docker-server=https://index.docker.io/v1/ \
-  --docker-username=aascedu \
-  --docker-password="$PASSWD" \
-  --docker-email=arthurascedusnkrs@gmail.com
+# kubectl create secret docker-registry regcred \
+#   --docker-server=https://index.docker.io/v1/ \
+#   --docker-username=aascedu \
+#   --docker-password="$PASSWD" \
+#   --docker-email=arthurascedusnkrs@gmail.com
 kubectl patch serviceaccount default -n gitlab -p '{"imagePullSecrets":[{"name":"regcred"}]}'
 kubectl apply -f confs/namespaces.yml
 # kubectl apply -n argocd -f "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
