@@ -1,0 +1,31 @@
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# --- Logs / temp ---
+*.log
+*.tmp
+*.temp
+*.bak
+
+# --- Vagrant / VirtualBox ---
+.vagrant/
+*.box
+
+# --- Kubernetes / tooling local artefacts ---
+*.kubeconfig
+kubeconfig
+
+# --- Local secrets / tokens ---
+p1/token
+
+# --- Archives ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
