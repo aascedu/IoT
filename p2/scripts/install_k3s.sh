@@ -2,6 +2,6 @@
 
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --node-ip 192.168.56.110 --flannel-iface eth1
 
-for file in /vagrant/pods/*; do
+for file in /vagrant/confs/*; do
     sudo kubectl apply -f $file
 done
