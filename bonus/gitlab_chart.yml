@@ -1,0 +1,110 @@
+global:
+  imagePullSecrets:
+    - name: regcred
+  hosts:
+    https: false
+  ingress:
+    configureCertmanager: false
+    enabled: false
+
+resources:
+  requests:
+    ephemeral-storage: 4Gi
+  limits:
+    ephemeral-storage: 8Gi
+
+nginx-ingress:
+  enabled: false
+
+gitlab:
+  kas:
+    enabled: false
+    install: false
+  webservice:
+    replicas: 1
+    resources:
+      requests:
+        memory: 512Mi
+        cpu: 500m
+        ephemeral-storage: 4Gi
+      limits:
+        memory: 1Gi
+        cpu: 1
+        ephemeral-storage: 8Gi
+
+
+  sidekiq:
+    replicas: 1
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 250m
+      limits:
+        memory: 512Mi
+        cpu: 500m
+
+  postgresql:
+    install: true
+    resources:
+      requests:
+        ephemeral-storage: 4Gi
+        memory: 512Mi
+        cpu: 250m
+      limits:
+        memory: 1Gi
+        cpu: 500m
+        ephemeral-storage: 8Gi
+
+  redis:
+    install: true
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 200m
+        ephemeral-storage: 4Gi
+      limits:
+        memory: 512Mi
+        cpu: 400m
+        ephemeral-storage: 8Gi
+
+
+  gitaly:
+    persistence:
+      enabled: true
+      size: 10Gi
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 250m
+      limits:
+        memory: 512Mi
+        cpu: 500m
+
+  minio:
+    enabled: false
+
+  registry:
+    enabled: false
+
+  prometheus:
+    install: false
+
+  grafana:
+    install: false
+
+  certmanager:
+    install: false
+
+  monitoring:
+    install: false
+
+installCertmanager: false
+kas:
+  enabled: false
+  install: false
+
+gitlab-runner:
+  install: false
+
+prometheus:
+  install: false
